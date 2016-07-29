@@ -3,7 +3,7 @@ WebJackPort
 
 ...is a wrapper for [WebJack](https://github.com/publiclab/webjack) to use as transport layer for [firmata.js](https://github.com/firmata/firmata.js). WebJackPort is inspired by [EtherPort](https://github.com/rwaldron/etherport) from Rick Waldron.
 
-Try it out in this live demo: https://publiclab.github.io/webjack-firmata/examples/
+Try it out in this live demo: https://publiclab.github.io/webjack-firmata/example/
 
 ## Install
 ```
