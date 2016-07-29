@@ -1,0 +1,46 @@
+{
+  "name": "webjackport",
+  "version": "0.0.1",
+  "description": "A transport layer for firmata.js that makes use of WebJack.",
+  "main": "dist/webjackport.js",
+  "scripts": {
+    "postinstall": "cp node_modules/webrtc-adapter/out/adapter.js example/",
+    "postinstall": "cp node_modules/jquery/dist/jquery.min.js example/",
+    "test": "tape test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/publiclab/webjackport.git"
+  },
+  "keywords": [
+    "serial",
+    "webjack",
+    "RPC",
+    "firmata",
+    "arduino",
+    "public",
+    "lab"
+  ],
+  "author": "Public Lab",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/publiclab/webjackport/issues"
+  },
+  "dependencies": {
+    "es6-shim": "^0.25.3",
+    "webjack": "^0.1.0"
+  },
+  "devDependencies": {
+    "jquery": "^3.1.0",
+    "firmata": "^0.4.0",
+    "webrtc-adapter": "^1.1.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "matchdep": "^0.3.0",
+    "sinon": "^1.17.4",
+    "tape": "^3.5.0"
+  },
+  "homepage": "https://github.com/publiclab/webjackport#readme"
+}

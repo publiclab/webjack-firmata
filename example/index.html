@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">                                                                                         
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>WebJack</title>
+
+  <script src="adapter.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="bundle.js" type="text/javascript"></script>
+  
+  <link href="examples.css" rel="stylesheet">
+
+</head>
+<body>
+  <h1>WebJack-Firmata Demo</h1>
+  <a href="https://github.com/publiclab/webjack">WebJack</a> is a JavaScript library that uses an audio modem to communicate with an Arduino µC via headphone jack. <a href="https://github.com/firmata/protocol">Firmata</a> is a RPC like protocol, that turns microcontrollers into remotely controlled slaves. This demo combines WebJack and Firmata to control an Arduino via headphone jack.
+
+  <p>Make sure your phone's volume is up all the way.</p>
+
+  <h2>Commands</h2>
+  <button id="capab" class="send">Query Capabilities</button>
+  <button id="firmware" class="send">Query Firmware</button>
+
+  <div class="connected">
+    <button id="digital" class="send">digitalWrite</button>
+    <select id="pin">
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>12</option>
+      <option>13</option>
+    </select>
+    <select id="state">
+      <option value="0">LOW</option>
+      <option value="1">HIGH</option>
+    </select>
+  </div>
+
+  <div class="connected">  
+    <button id="analog" class="send">analogRead</button>
+    <select id="apin">
+      <option value="0">A0</option>
+      <option value="1">A1</option>
+      <option value="2">A2</option>
+      <option value="3">A3</option>
+      <option value="4">A4</option>
+      <option value="5">A5</option>
+    </select>
+  </div>
+  
+  <h2>Log</h2>
+  <div class="webjack-log"></div>
+
+</body>
+</html>
