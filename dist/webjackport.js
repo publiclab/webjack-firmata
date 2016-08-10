@@ -37,11 +37,11 @@ function WebJackPort() {
     }
   };
 
-  var connection = new WebJack.Connection({firmata : true});
+  var connection = new WebJack.Connection({raw : true});
   state.flushTo(connection);
 
   connection.listen(function(data) {
-  	console.log(data);
+    console.log((data[0]).toString(16));
   	WebJackPort.emit("data", data)
   });
 

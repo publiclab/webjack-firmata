@@ -790,8 +790,11 @@ void loop()
 
   /* STREAMREAD - processing incoming messagse as soon as possible, while still
    * checking digital inputs.  */
-  while (Firmata.available())
+  while (Firmata.available()){
+    delay(20);
     Firmata.processInput();
+  }
+    
 
   // TODO - ensure that Stream buffer doesn't go over 60 bytes
 

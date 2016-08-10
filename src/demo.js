@@ -1,14 +1,19 @@
 'use strict';
 
-var $ = require("jquery");
-
 $(document).ready(function($) {
   var Firmata = require("firmata").Board;
   var WebJackPort = require("../dist/webjackport");
-  var board = new Firmata(new WebJackPort());
-
+  var opts = {
+    reportVersionTimeout: 500,
+    skipCapabilities: true  // we skip this for now, capabilities are not decoded correctly yet
+  };
+  window.board = new Firmata(new WebJackPort(), opts);
 
   var log = $('.webjack-log');
+  log.appends = function(text){
+    this.append(text + "<br>");
+    this.scrollTop(this[0].scrollHeight);
+  }
 
   board.on("ready", function() {
     console.log("READY!");
@@ -16,7 +21,8 @@ $(document).ready(function($) {
       board.firmware.version.major + "." +
       board.firmware.version.minor;
     console.log(firmware);
-    log.append("READY!<br>" + firmware + "<br>");
+    log.appends("Board is ready!");
+    log.appends("Firmware: " + firmware);
 
     // var state = 1;
     // this.pinMode(13, this.MODES.OUTPUT);
@@ -29,22 +35,22 @@ $(document).ready(function($) {
 
   $('#capab').click(function () {
     board.queryCapabilities(function (capabilites){
-      log.append("Capabilities:<br>");
-      log.append(capabilites);
+      log.appends("Capabilities:");
+      log.appends(capabilites);
     });
   });
   
   $('#firmware').click(function () {
     board.queryFirmware(function (fmw){
-      log.append("Firmware:<br>");
-      log.append(fmw);
+      log.appends("Firmware:");
+      log.appends(fmw);
     });
   });
   
   $('#digital').click(function () {
     if (board.isReady){
       var pin = $('#pin').val();
-      var level = $('#state').val();
+      var level = $('#state').val() == '0' ? board.LOW : board.HIGH;
       console.log("digitalWrite("+pin+","+level+")");
       board.pinMode(pin, board.MODES.OUTPUT);
       board.digitalWrite(pin, level);
@@ -57,7 +63,7 @@ $(document).ready(function($) {
       console.log("analogRead("+pin+")");
       board.analogRead(pin, function(value){
         console.log("Received analog value: "+ value);
-        log.append("Analog Pin " + pin + ": " + value + "<br>");
+        log.appends("Analog Pin " + pin + ": " + value);
       });
   }
   });
