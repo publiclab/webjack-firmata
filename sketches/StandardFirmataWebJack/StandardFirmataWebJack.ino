@@ -27,6 +27,12 @@
 #include <Wire.h>
 #include <Firmata.h>
 
+/*====================================
+ * CUSTOM SYSEX COMMANDS
+ */
+#define CUSTOM_READ_ANALOG (0x07)
+/* =================================== */
+
 #define I2C_WRITE                   B00000000
 #define I2C_READ                    B00001000
 #define I2C_READ_CONTINUOUSLY       B00010000
@@ -661,6 +667,11 @@ void sysexCallback(byte command, byte argc, byte *argv)
       serialFeature.handleSysex(command, argc, argv);
 #endif
       break;
+
+     // A custom sysex command, that reports an analog pin exactly once
+     case CUSTOM_READ_ANALOG:
+       Firmata.sendAnalog(argv[1], analogRead(argv[1]));
+       break;
   }
 }
 
@@ -791,7 +802,7 @@ void loop()
   /* STREAMREAD - processing incoming messagse as soon as possible, while still
    * checking digital inputs.  */
   while (Firmata.available()){
-    delay(20);
+    delay(10);
     Firmata.processInput();
   }
     
