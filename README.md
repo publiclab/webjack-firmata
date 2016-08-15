@@ -5,7 +5,7 @@ WebJackPort
 
 Try it out in this live demo: https://publiclab.github.io/webjack-firmata/example/
 
-__Note:__ WebJack is not stable yet, and WebJackPort is neither. You may have to reload the demo site several times until you get an output in the 'Log' section. Analog readings also do not work yet.
+__Note:__ WebJack is not stable yet, and WebJackPort is neither. You may have to reload the demo site several times until you get an output in the 'Log' section.
 
 ## Install
 ```
