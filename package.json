@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "es6-shim": "^0.25.3",
-    "webjack": "^0.1.2"
+    "webjack": "~0.1.1"
   },
   "devDependencies": {
     "jquery": "^3.1.0",
