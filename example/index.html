@@ -14,16 +14,16 @@
 </head>
 <body>
   <h1>WebJack-Firmata Demo</h1>
-  <a href="https://github.com/publiclab/webjack">WebJack</a> is a JavaScript library that uses an audio modem to communicate with an Arduino µC via headphone jack. <a href="https://github.com/firmata/protocol">Firmata</a> is a RPC like protocol, that turns microcontrollers into remotely controlled slaves. This demo combines WebJack and Firmata to control an Arduino via headphone jack.
+  <a href="https://github.com/publiclab/webjack">WebJack</a> is a JavaScript library that uses an audio modem to communicate with an Arduino µC via headphone jack. <a href="https://github.com/firmata/protocol">Firmata</a> is a RPC like protocol, that defines a serial interface to read from or write to a microcontroller's pins. This demo combines WebJack and Firmata to control an Arduino via headphone jack. <br><br>
+  To run the demo, upload this modified version of the <a href="https://github.com/publiclab/webjack-firmata/blob/master/sketches/StandardFirmataWebJack/StandardFirmataWebJack.ino">StandardFirmata</a> sketch.
 
-  <p>Make sure your phone's volume is up all the way.</p>
 
   <h2>Commands</h2>
-  <button id="capab" class="send">Query Capabilities</button>
-  <button id="firmware" class="send">Query Firmware</button>
+  <button id="capab">Query Capabilities</button>
+  <button id="firmware">Query Firmware</button>
 
   <div class="connected">
-    <button id="digital" class="send">digitalWrite</button>
+    <button id="digital">digitalWrite</button>
     <select id="pin">
       <option>0</option>
       <option>1</option>
@@ -36,16 +36,16 @@
       <option>9</option>
       <option>10</option>
       <option>12</option>
-      <option>13</option>
+      <option selected>13</option>
     </select>
     <select id="state">
       <option value="0">LOW</option>
-      <option value="1">HIGH</option>
+      <option value="1" selected>HIGH</option>
     </select>
   </div>
 
   <div class="connected">  
-    <button id="analog" class="send">analogRead</button>
+    <button id="analog">analogRead</button>
     <select id="apin">
       <option value="0">A0</option>
       <option value="1">A1</option>
@@ -56,8 +56,18 @@
     </select>
   </div>
   
+  <button id="reset">Reset</button>
+
   <h2>Log</h2>
   <div class="webjack-log"></div>
 
+  <p class="hint"><i>WebJack is in an early development stage. If it does not work, try to:</i>
+    <ul>
+      <li>use an other browser <i>(Safari will not work, sorry)</i></li>
+      <li>pump up the volume</li>
+      <li>reload the site several times</li>
+      <li>reset the Arduino<br>
+    </ul>
+  </p>
 </body>
 </html>

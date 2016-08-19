@@ -5,6 +5,8 @@ WebJackPort
 
 Try it out in this live demo: https://publiclab.github.io/webjack-firmata/example/
 
+__Note:__ WebJack is not stable yet, and WebJackPort is neither. You may have to reload the demo site several times until you get an output in the 'Log' section.
+
 ## Install
 ```
 npm install --save webjackport
@@ -35,7 +37,7 @@ board.on("ready", function() {
 });
 ```
 
-
+Take a look at the sketches folder to see how Firmata works together with SoftModem.
 
 
 ## Building
@@ -44,4 +46,4 @@ webjackport.js is built using a Grunt task from the source files in `/src/`, and
 
 ## Building the demo
 
-The demo is bundled with [webpack](https://webpack.github.io/). Before executing `webpack`, do `npm install`.
+The demo is bundled with [Webpack](https://webpack.github.io/). Before executing `webpack`, do `npm install`.
