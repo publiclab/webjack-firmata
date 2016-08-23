@@ -50,7 +50,7 @@ __SimpleDigitalFirmata__ and __ConfigurableFirmata__ are capable of setting and 
 
 __StandardFirmataWebJack__ is a modification of the standard Firmata firmware and thus has all its capabilities. Additionally a custom SysEx command is implemented, that reports exactly one analog reading.
 
-All sketches are configured with a 10 millisecond delay in the processing loop. This is due to crosstalk of requests messages. An immediate reply will make it difficult for WebJack to distinguish the crosstalk from the actual reply. 
+All sketches are configured with a 10 millisecond delay in the processing loop. This is due to [crosstalk](https://en.wikipedia.org/wiki/Crosstalk) from requests messages. An immediate reply will make it difficult for WebJack to distinguish the crosstalk from the actual reply. 
 
 
 ### Known Issues
