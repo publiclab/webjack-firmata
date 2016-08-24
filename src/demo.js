@@ -4,10 +4,10 @@ var Firmata = require("firmata");
 var Board = Firmata.Board;
 var WebJackPort = require("../dist/webjackport");
 var opts = {
-  reportVersionTimeout: 500,
+  reportVersionTimeout: 2500,
   skipCapabilities: true  // we skip this for now, capabilities are not decoded correctly yet
 };
-window.board = new Board(new WebJackPort(), opts);
+var board = new Board(new WebJackPort(), opts);
 
 var CAPABILITY_QUERY     = 0x6B;
 var ANALOG_MAPPING_QUERY = 0x69;

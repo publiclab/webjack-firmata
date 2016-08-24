@@ -41,7 +41,7 @@ function WebJackPort() {
   state.flushTo(connection);
 
   connection.listen(function(data) {
-    console.log((data[0]).toString(16));
+    // console.log((data[0]).toString(16));
   	WebJackPort.emit("data", data)
   });
 
