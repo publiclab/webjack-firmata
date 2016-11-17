@@ -109,4 +109,5 @@ $(document).ready(function($) {
   });
 });
 
+module.exports = { board: board };
 

@@ -86,6 +86,5 @@ webjackport.js is built using a Grunt task from the source files in `/src/`, and
 
 ### Building the demo
 
-The demo is bundled with [Webpack](https://webpack.github.io/). Before executing `webpack`, do `npm install`.
-
+The demos in `/example/` are bundled with [Webpack](https://webpack.github.io/). Before executing `webpack`, do `npm install` -- and `cd example` -- since you have to run `webpack` from inside the `example` directory. The code in `/example/bundle.js`, is then compiled from `/example/Demo.js`. 
 
