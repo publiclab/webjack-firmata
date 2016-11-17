@@ -7,6 +7,11 @@ Try it out in this live demo: https://publiclab.github.io/webjack-firmata/exampl
 
 __Note:__ WebJack is not stable yet, and WebJack-Firmata is neither. You may have to reload the demo site several times until you get an output in the 'Log' section.
 
+## Keyboard bindings
+
+A second example, showing triggering of Arduino pins via keyboard keypresses, is available at https://publiclab.github.io/webjack-firmata/example/keyboard/
+
+
 ## Install
 ```
 npm install --save webjackport

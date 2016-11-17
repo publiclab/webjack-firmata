@@ -1,6 +1,6 @@
 {
   "name": "webjackport",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A transport layer for firmata.js that makes use of WebJack.",
   "main": "dist/webjackport.js",
   "scripts": {
