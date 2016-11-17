@@ -4,8 +4,7 @@
   "description": "A transport layer for firmata.js that makes use of WebJack.",
   "main": "dist/webjackport.js",
   "scripts": {
-    "postinstall": "cp node_modules/webrtc-adapter/out/adapter.js example/",
-    "postinstall": "cp node_modules/jquery/dist/jquery.min.js example/",
+    "postinstall": "if [ -f node_modules/webrtc-adapter/out/adapter.js ]; then cp node_modules/webrtc-adapter/out/adapter.js example/; fi && if [ -f node_modules/webrtc-adapter/out/adapter.js ]; then cp node_modules/jquery/dist/jquery.min.js example/; fi",
     "test": "tape test/**/*.js"
   },
   "repository": {
