@@ -8,19 +8,19 @@
   <script src="../adapter.js"></script>
   <script src="../jquery.min.js"></script>
   <script src="../bundle.js" type="text/javascript"></script>
-  <script src="lib/Keyboard.js" type="text/javascript"></script>
-  <script src="keyboard.js" type="text/javascript"></script>
+  <script src="serial.js" type="text/javascript"></script>
   
   <link href="../examples.css" rel="stylesheet">
 
 </head>
 <body>
-  <h1>WebJack-Firmata Keyboard Demo</h1>
+  <h1>WebJack-Firmata Serial Demo</h1>
   <a href="https://github.com/publiclab/webjack-firmata" target="_blank">WebJack-Firmata</a> is a transport layer for <a href="https://github.com/firmata/firmata.js" target="_blank">Firmata.js</a> and is based on <a href="https://github.com/publiclab/webjack" target="_blank">WebJack</a>, a JavaScript library that uses an audio modem to communicate with an Arduino µC via headphone jack. Firmata is a RPC like protocol, that defines a serial interface to read from or write to a microcontroller's pins. This demo allows web browsers to control an Arduino via headphone jack.<br><br>
   To run the demo, upload this modified version of the <a href="https://github.com/publiclab/webjack-firmata/blob/master/sketches/StandardFirmataWebJack/StandardFirmataWebJack.ino" target="_blank">StandardFirmata</a> sketch. You will also need additional <a href="https://github.com/arms22/SoftModem#hardware" target="_blank">hardware</a>.
 
-  <h2>Keyboard Demo</h2>
-  <p>In this demo, specific keys are bound to pins, which are set high on <b>keydown</b> and low on <b>keyup</b>.</p>
+  <h2>Serial Demo</h2>
+  <p>In this demo, text may be sent via hardware serial from the Arduino board when it is input into the input below and "SerialWrite" is pressed.</p>
+
   <h2>Commands</h2>
   <button id="capab">Query Capabilities</button>
   <button id="firmware">Query Firmware</button>
@@ -58,7 +58,10 @@
       <option value="5">A5</option>
     </select>
   </div>
-  
+ 
+  <input type="text" class="serialWrite">
+  <button class="serialWriteSend connected">SerialWrite</button>
+ 
   <button id="reset">Reset</button>
 
   <h2>Log</h2>
