@@ -107,16 +107,3 @@ function analogRead(pin, callback) {
     });
   }
 }
-
-    keyboard.on(key, 'activate', function() {
-
-      digitalWrite(pin, 1); 
-
-    });
-
-    // on key unpress, reset to 0
-    keyboard.on(key, 'release', function() {
-
-      digitalWrite(pin, 0); 
-
-    });
