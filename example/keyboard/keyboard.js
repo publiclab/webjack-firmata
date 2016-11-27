@@ -2,7 +2,7 @@ var digitalKeys,
     keyboard, 
     board;
 
-(function() {
+$(document).ready(function($) {
 
   // Possible firmata commands at https://github.com/firmata/firmata.js
 
@@ -38,16 +38,17 @@ var digitalKeys,
 
   $('.test').on('mousedown', function() {
     digitalWrite(2, 1); 
+    digitalWrite(15, 1); 
   }).on('mouseup', function() {
     digitalWrite(2, 0); 
+    digitalWrite(15, 0); 
   });
 
-})();
+});
 
 
 // to add new keys at runtime:
-// digitalKeys['UP'] = 1;
-// readKeys
+// bindKey('Up', 1);
 
 
 
