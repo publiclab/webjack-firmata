@@ -1,17 +1,25 @@
+var digitalKeys, 
+    keyboard, 
+    board;
+
 (function() {
 
   // Possible firmata commands at https://github.com/firmata/firmata.js
 
   // https://www.npmjs.com/package/keyboard-cjs
-  var keyboard = new Keyboard(window),
-      board = Demo.board; // exported from /examples/Demo.js; set in /examples/webpack.config.js
+  keyboard = new Keyboard(window);
+  board = Demo.board; // exported from /examples/Demo.js; set in /examples/webpack.config.js
 
   // associate keypresses with writes to digital pins
-  var digitalKeys = {
+  digitalKeys = {
     'A': 0,
     'S': 1,
     'W': 2,
-    'D': 3
+    'D': 3,
+    'Left':  0,
+    'Down':  1,
+    'Up':    2,
+    'Right': 3
   }
 
   // associate keypresses with writes to analog pins
@@ -24,58 +32,91 @@
     console.log(value);
   });
 
+  readKeys(); // read key mappings in
+
+  // for debugging:
+
+  $('.test').on('mousedown', function() {
+    digitalWrite(pin, 1); 
+  }).on('mouseup', function() {
+    digitalWrite(pin, 0); 
+  });
+
+})();
+
+
+// to add new keys at runtime:
+// digitalKeys['UP'] = 1;
+// readKeys
 
 
 
-  /* ======== make changes above this line ========= */
+/* ======== make changes above this line ========= */
 
+// actually connect up the key to the pin
+function bindKey(key, pin) {
 
-  // go through each key from above
-  Object.keys(digitalKeys).forEach(function(key, i) {
-
-    // actually connect up the key to the pin
     keyboard.on(key, 'activate', function() {
-
-      var pin = digitalKeys[key];
 
       digitalWrite(pin, 1); 
 
     });
 
-    // same for key unpress, reset to 0
+    // on key unpress, reset to 0
     keyboard.on(key, 'release', function() {
-
-      var pin = digitalKeys[key];
 
       digitalWrite(pin, 0); 
 
     });
+}
+
+function readKeys(dKeys) {
+
+  dKeys = dKeys || digitalKeys;
+
+  // go through each key from above
+  Object.keys(dKeys).forEach(function(key, i) {
+
+    bindKey(key, dKeys[i]);
 
   });
 
-  // write a state to a pin
-  function digitalWrite(pin, state) {
-    var level = state == '0' ? board.LOW : board.HIGH;
-    if (board.isReady){
-      console.log("digitalWrite("+pin+","+level+")");
-      board.pinMode(pin, board.MODES.OUTPUT);
-      board.digitalWrite(pin, level);
-    } else {
-      console.log("Board not ready. Pin "+pin+", level "+level+".");
-    }
-  }
-  
+}
 
-  // listen on an analog pin and run function callback(value) when things happen
-  function analogRead(pin, callback) {
-    if (board.isReady){
-      console.log("analogRead("+pin+")");
-      board.setSamplingInterval(200);
-      board.analogRead(pin, function(value){
-        console.log("Received analog value: "+ value);
-        log.appends("Analog Pin " + pin + ": " + value);
-      });
-    }
+// write a state to a pin
+function digitalWrite(pin, state) {
+  var level = state == '0' ? board.LOW : board.HIGH;
+  if (board.isReady){
+    console.log("digitalWrite("+pin+","+level+")");
+    board.pinMode(pin, board.MODES.OUTPUT);
+    board.digitalWrite(pin, level);
+  } else {
+    console.log("Board not ready. Pin "+pin+", level "+level+".");
   }
+}
 
-})();
+
+// listen on an analog pin and run function callback(value) when things happen
+function analogRead(pin, callback) {
+  if (board.isReady){
+    console.log("analogRead("+pin+")");
+    board.setSamplingInterval(200);
+    board.analogRead(pin, function(value){
+      console.log("Received analog value: "+ value);
+      log.appends("Analog Pin " + pin + ": " + value);
+    });
+  }
+}
+
+    keyboard.on(key, 'activate', function() {
+
+      digitalWrite(pin, 1); 
+
+    });
+
+    // on key unpress, reset to 0
+    keyboard.on(key, 'release', function() {
+
+      digitalWrite(pin, 0); 
+
+    });
