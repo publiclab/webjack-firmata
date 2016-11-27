@@ -38,10 +38,10 @@ $(document).ready(function($) {
 
   $('.test').on('mousedown', function() {
     digitalWrite(2, 1); 
-    digitalWrite(15, 1); 
+    digitalWrite(16, 1); 
   }).on('mouseup', function() {
     digitalWrite(2, 0); 
-    digitalWrite(15, 0); 
+    digitalWrite(16, 0); 
   });
 
 });
