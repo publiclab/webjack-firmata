@@ -13,6 +13,11 @@ A second example, showing triggering of Arduino pins via keyboard keypresses, is
 
 Find build instructions for the demo at the end of this page.
 
+__Serial communication__
+
+A third example implements serial communication via firmata's `serialWrite`, but depends on StandardFirmataPlus.ino, which has [not yet been ported over to be WebJack compatible](https://github.com/publiclab/webjack-firmata/issues/19). This could allow webjack-firmata to act as a serial bridge.
+
+
 ## Install
 ```
 npm install --save webjackport
