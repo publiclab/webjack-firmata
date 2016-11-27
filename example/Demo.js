@@ -110,12 +110,12 @@ $(document).ready(function($) {
   analogWriteButton.onclick = function () {
     if (board.isReady){
       var pin = $('#awpin').val();
+      var value = $('.analogWrite .value').val();
       console.log("analogWrite("+pin+")");
       board.setSamplingInterval(200);
-      board.analogWrite(pin, function(value){
-        console.log("Sent analog value: "+ value);
-        log.appends("Analog Pin " + pin + ": " + value);
-      });
+      board.analogWrite(pin, value);
+      console.log("Sent analog value: "+ value);
+      log.appends("Analog Pin " + pin + ": " + value);
     }
   }
 

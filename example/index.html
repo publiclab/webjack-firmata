@@ -22,7 +22,7 @@
   <button id="capab">Query Capabilities</button>
   <button id="firmware">Query Firmware</button>
 
-  <div class="connected">
+  <div class="connected digitalWrite">
     <button id="digital">digitalWrite</button>
     <select id="pin">
       <option>0</option>
@@ -44,7 +44,7 @@
     </select>
   </div>
 
-  <div class="connected">  
+  <div class="connected analogWrite">  
     <button id="analogWrite">analogWrite</button>
     <select id="awpin">
       <option value="0">A0</option>
@@ -53,6 +53,10 @@
       <option value="3">A3</option>
       <option value="4">A4</option>
       <option value="5">A5</option>
+    </select>
+    <select class="value">
+      <option value="0">0</option>
+      <option value="1" selected>1</option>
     </select>
   </div>
 
