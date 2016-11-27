@@ -37,9 +37,9 @@ var digitalKeys,
   // for debugging:
 
   $('.test').on('mousedown', function() {
-    digitalWrite(pin, 1); 
+    digitalWrite(2, 1); 
   }).on('mouseup', function() {
-    digitalWrite(pin, 0); 
+    digitalWrite(2, 0); 
   });
 
 })();
