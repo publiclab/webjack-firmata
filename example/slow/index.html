@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">                                                                                         
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>WebJack</title>
+
+  <script src="../adapter.js"></script>
+  <script src="../jquery.min.js"></script>
+  <script src="../bundle.js" type="text/javascript"></script>
+  <script src="slow.js" type="text/javascript"></script>
+  
+  <link href="../examples.css" rel="stylesheet">
+
+</head>
+<body>
+  <h1>WebJack-Firmata Slow Baud Rate Demo</h1>
+  <a href="https://github.com/publiclab/webjack-firmata" target="_blank">WebJack-Firmata</a> is a transport layer for <a href="https://github.com/firmata/firmata.js" target="_blank">Firmata.js</a> and is based on <a href="https://github.com/publiclab/webjack" target="_blank">WebJack</a>, a JavaScript library that uses an audio modem to communicate with an Arduino µC via headphone jack. Firmata is a RPC like protocol, that defines a serial interface to read from or write to a microcontroller's pins. This demo allows web browsers to control an Arduino via headphone jack.<br><br>
+  To run the demo, upload this modified version of the <a href="https://github.com/publiclab/webjack-firmata/blob/master/sketches/StandardFirmataWebJack/StandardFirmataWebJack.ino" target="_blank">StandardFirmata</a> sketch. You will also need additional <a href="https://github.com/arms22/SoftModem#hardware" target="_blank">hardware</a>.
+
+  <h2>Slow Baud Rate Demo</h2>
+  <p>In this demo, we communicate at 36 baud -- slow enough for the human ear to easily hear each bit.</p>
+
+  <h2>Commands</h2>
+  <button id="capab">Query Capabilities</button>
+  <button id="firmware">Query Firmware</button>
+
+  <div class="connected">
+    <button id="digital">digitalWrite</button>
+    <select id="pin">
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>12</option>
+      <option selected>13</option>
+    </select>
+    <select id="state">
+      <option value="0">LOW</option>
+      <option value="1" selected>HIGH</option>
+    </select>
+  </div>
+
+  <div class="connected">  
+    <button id="analog">analogRead</button>
+    <select id="apin">
+      <option value="0">A0</option>
+      <option value="1">A1</option>
+      <option value="2">A2</option>
+      <option value="3">A3</option>
+      <option value="4">A4</option>
+      <option value="5">A5</option>
+    </select>
+  </div>
+
+  <form class="serial" action="javascript:void(0);"> 
+    <input type="text" class="serialWrite">
+    <button class="serialWriteSend connected">SerialWrite</button>
+  </form>
+ 
+  <button id="reset">Reset</button>
+
+  <h2>Log</h2>
+  <div class="webjack-log"></div>
+
+  <p class="hint"><i>WebJack is in an early development stage. If it does not work, try to:</i>
+    <ul>
+      <li>use an other browser <i>(Safari will not work, sorry)</i></li>
+      <li>pump up the volume</li>
+      <li>reload the site several times</li>
+      <li>reset the Arduino<br>
+    </ul>
+  </p>
+</body>
+</html>
