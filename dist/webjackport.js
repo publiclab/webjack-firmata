@@ -10,7 +10,7 @@ var WebJack = require("webjack");
 var Emitter = require("events").EventEmitter;
 var priv = new Map();
 
-function WebJackPort() {
+function WebJackPort(options) {
   Emitter.call(this);
 
 
@@ -37,7 +37,10 @@ function WebJackPort() {
     }
   };
 
-  var connection = new WebJack.Connection({raw : true});
+  options = options || {};
+  options.profile = options.profile || {};
+  options.profile.raw = true;
+  var connection = new WebJack.Connection(options.profile);
   state.flushTo(connection);
 
   connection.listen(function(data) {
