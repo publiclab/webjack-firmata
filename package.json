@@ -42,7 +42,7 @@
     "matchdep": "^0.3.0",
     "sinon": "^1.17.4",
     "tape": "^4.9.2",
-    "webpack": "^1.0.0"
+    "webpack": "^4.28.1"
   },
   "homepage": "https://github.com/publiclab/webjackport#readme"
 }
