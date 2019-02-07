@@ -28,7 +28,7 @@
     "url": "https://github.com/publiclab/webjackport/issues"
   },
   "dependencies": {
-    "es6-shim": "^0.25.3",
+    "es6-shim": "^0.35.4",
     "webjack": "~0.1.1"
   },
   "devDependencies": {
