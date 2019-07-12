@@ -34,7 +34,7 @@
   "devDependencies": {
     "jquery": "^3.1.0",
     "firmata": "^0.10.0",
-    "webrtc-adapter": "^1.1.0",
+    "webrtc-adapter": "^7.2.8",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-concat": "^1.0.1",
