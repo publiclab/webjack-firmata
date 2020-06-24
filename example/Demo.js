@@ -37,8 +37,10 @@ $(document).ready(function($) {
   // setup buttons
   var digitalButton = $('#digital')[0];
   var analogButton = $('#analog')[0];
+  var analogWriteButton = $('#analogWrite')[0];
   digitalButton.disabled = true;
   analogButton.disabled = true;
+  analogWriteButton.disabled = true;
 
 
   board.on("ready", function() {
@@ -48,6 +50,7 @@ $(document).ready(function($) {
 
     board.queryAnalogMapping(function (mapping){
       analogButton.disabled = false;
+      analogWriteButton.disabled = false;
     });
     // var state = 1;
     // this.pinMode(13, this.MODES.OUTPUT);
@@ -101,6 +104,18 @@ $(document).ready(function($) {
       //   board.removeAllListeners("analog-read-" + pin);
       // });
       // board.sysexCommand(Board.encode([CUSTOM_READ_ANALOG, pin]));
+    }
+  }
+
+  analogWriteButton.onclick = function () {
+    if (board.isReady){
+      var pin = $('#awpin').val();
+      var value = $('.analogWrite .value').val();
+      console.log("analogWrite("+pin+")");
+      board.setSamplingInterval(200);
+      board.analogWrite(pin, value);
+      console.log("Sent analog value: "+ value);
+      log.appends("Analog Pin " + pin + ": " + value);
     }
   }
 
