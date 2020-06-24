@@ -52,6 +52,21 @@ board.on("ready", function() {
   }.bind(this), 500);
 });
 ```
+
+You can configure WebJack with a profile object (see [docs](https://github.com/publiclab/webjack#individual-profile-options)) by passing it as a constructor option:
+
+```js
+var board = new Firmata(new WebJackPort({
+  profile: {
+    baud : 1225,
+    freqLow : 4900,
+    freqHigh : 7350,
+    echoCancellation : false,
+    softmodem : true
+  }
+}));
+```
+
 Also take a look at the demo site in the example folder.
 
 ### Sketches

@@ -13,6 +13,10 @@ var CAPABILITY_QUERY     = 0x6B;
 var ANALOG_MAPPING_QUERY = 0x69;
 var SAMPLING_INTERVAL    = 0x7A;
 
+function setOptions(options) {
+  board = new Board(new WebJackPort(options), opts);
+}
+
 $(document).ready(function($) {
   var log = $('.webjack-log');
   log.appends = function(text){
@@ -109,5 +113,8 @@ $(document).ready(function($) {
   });
 });
 
-module.exports = { board: board };
+module.exports = {
+  board: board,
+  setOptions: setOptions
+};
 
